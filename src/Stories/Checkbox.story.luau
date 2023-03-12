@@ -1,7 +1,7 @@
 
-local CubeCat = script.Parent.Parent
-local Packages = CubeCat.Parent
-local Components = CubeCat.Components
+local GameComponents = script.Parent.Parent
+local Packages = GameComponents.Parent
+local Components = GameComponents.Components
 
 local Fusion = require(Packages.Fusion)
 

@@ -4,10 +4,10 @@
 ]]
 
 local Packages = script.Parent.Parent.Parent.Parent
-local CubeCat = script.Parent.Parent.Parent
+local GameComponents = script.Parent.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
-local Util = require(CubeCat.Utility)
+local Util = require(GameComponents.Utility)
 
 local New = Fusion.New
 local Spring = Fusion.Spring
@@ -20,37 +20,32 @@ export type Border = {
 	Position: CanBeState<UDim2>?,
 	Size: CanBeState<UDim2>?,
 	AnchorPoint: CanBeState<Vector2>?,
-	
+
 	Thickness: CanBeState<number>?,
 	BorderColor: CanBeState<Enum.StudioStyleGuideColor>?,
 	BorderModifier: CanBeState<Enum.StudioStyleGuideModifier>?,
-	
-	[any]: any	
+
+	[any]: any,
 }
 
 local COMPONENT_ONLY_PROPERTIES = {
 	"BorderColor",
-	"BorderModifier"
-	
+	"BorderModifier",
 }
 
 local function Border(props: Border)
-	
 	local BorderColor = props.BorderColor or Enum.StudioStyleGuideColor.Border
 	local BorderModifier = props.BorderModifier
-	
+
 	local BorderColor3 = Spring(Theme(BorderColor, BorderModifier), 40, 1)
-	
-	local Border = New "UIStroke" {
-		
+
+	local Border = New("UIStroke")({
+
 		ApplyStrokeMode = Enum.ApplyStrokeMode.Border,
-		Color = BorderColor3
-		
-	}
-	
-	
+		Color = BorderColor3,
+	})
+
 	return Fusion.Hydrate(Border)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
-	
 end
 
 return Border

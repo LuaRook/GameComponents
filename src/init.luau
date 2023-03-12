@@ -1,6 +1,6 @@
 local Components = script.Components
 
-local CubeCat = {
+local GameComponents = {
 	Runtime = require(script.Runtime),
 
 	Components = {
@@ -29,4 +29,4 @@ local CubeCat = {
 	Util = require(script.Utility),
 }
 
-return CubeCat
+return GameComponents

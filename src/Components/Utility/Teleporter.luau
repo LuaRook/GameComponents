@@ -6,10 +6,10 @@
 ]]
 
 local Packages = script.Parent.Parent.Parent.Parent
-local CubeCat = script.Parent.Parent.Parent
+local GameComponents = script.Parent.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
-local Util = require(CubeCat.Utility)
+local Util = require(GameComponents.Utility)
 
 local New = Fusion.New
 local Value = Fusion.Value
@@ -26,51 +26,45 @@ local stripProps = Util.stripProps
 
 type CanBeState<T> = Fusion.CanBeState<T>
 export type TopLayer = {
-	[any]: any
+	[any]: any,
 }
 
 local COMPONENT_ONLY_PROPERTIES = {
-	Children
-	
+	Children,
 }
 
 local function TopLayer(props: TopLayer)
-	
 	local refLayerCollector = props.LayerCollector or Value()
-	
+
 	local realSize = Value()
 	local realPosition = Value()
 	local realRotation = Value()
-	
+
 	local parent = Value()
 	local update = Value(math.random())
 	local highestLayerCollector = Computed(function()
 		local currentParent: Instance = unwrap(parent)
 		unwrap(update)
-		
+
 		if currentParent then
 			local layerCollector = currentParent:FindFirstAncestorWhichIsA("LayerCollector")
-			
+
 			if layerCollector then
-				
 				refLayerCollector:set(layerCollector)
 				return layerCollector
 			end
-			
 		end
-		
+
 		refLayerCollector:set(nil)
 		return nil
-	
 	end, Fusion.doNothing)
-	
+
 	local observer = Observer(parent):onChange(function()
 		local currentParent = unwrap(parent)
-		
+
 		if currentParent then
-			
-			Hydrate(currentParent) {
-			
+			Hydrate(currentParent)({
+
 				[Cleanup] = currentParent.Changed:Connect(function(propertyName)
 					if propertyName == "AbsoluteSize" then
 						realSize:set(currentParent.AbsoluteSize)
@@ -79,59 +73,57 @@ local function TopLayer(props: TopLayer)
 					elseif propertyName == "AbsoluteRotation" then
 						realRotation:set(currentParent.AbsoluteRotation)
 					end
-					
-				end)
-				
-			}
-			
+				end),
+			})
 		end
-		
 	end)
-	
-	local BaseClone = New "Folder" {
-		
+
+	local BaseClone = New("Folder")({
+
 		Name = "TopLayerPortal",
 		Parent = highestLayerCollector,
-		
-		[Children] = New "Frame" {
-		
+
+		[Children] = New("Frame")({
+
 			Name = "Portal:TopLayer",
-			
+
 			Size = Computed(function()
 				local size = unwrap(realSize)
-				if size == nil then return UDim2.new() end
+				if size == nil then
+					return UDim2.new()
+				end
 				return UDim2.fromOffset(size.X, size.Y)
 			end),
 			Position = Computed(function()
 				local position = unwrap(realPosition)
-				if position == nil then return UDim2.new() end
+				if position == nil then
+					return UDim2.new()
+				end
 				return UDim2.fromOffset(position.X, position.Y)
 			end),
 			Rotation = realRotation,
-			
+
 			BackgroundTransparency = 1,
-			
-			[Children] = props[Children]
-			
-		},
-		
-		[Cleanup] = observer
-		
-	}
-	
-	local TopLayer = New "Configuration" {
-		
+
+			[Children] = props[Children],
+		}),
+
+		[Cleanup] = observer,
+	})
+
+	local TopLayer = New("Configuration")({
+
 		Name = "Portal:TopLayer",
-		
-		[OnEvent "AncestryChanged"] = function() update:set(math.random()) end,
-		[Out "Parent"] = parent,
-		
-		[Cleanup] = BaseClone
-		
-	}
-	
+
+		[OnEvent("AncestryChanged")] = function()
+			update:set(math.random())
+		end,
+		[Out("Parent")] = parent,
+
+		[Cleanup] = BaseClone,
+	})
+
 	return Hydrate(TopLayer)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
-	
 end
 
 return TopLayer

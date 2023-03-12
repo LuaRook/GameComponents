@@ -6,10 +6,10 @@
 ]]
 
 local Packages = script.Parent.Parent.Parent.Parent
-local CubeCat = script.Parent.Parent.Parent
+local GameComponents = script.Parent.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
-local Util = require(CubeCat.Utility)
+local Util = require(GameComponents.Utility)
 
 local New = Fusion.New
 local Computed = Fusion.Computed
@@ -22,34 +22,32 @@ export type Padding = {
 	Position: CanBeState<UDim2>?,
 	Size: CanBeState<UDim2>?,
 	AnchorPoint: CanBeState<Vector2>?,
-	
+
 	Padding: CanBeState<number>?,
-	
-	[any]: any
+
+	[any]: any,
 }
 
 local COMPONENT_ONLY_PROPERTIES = {
-	"Padding"
-	
+	"Padding",
 }
 
 local function Padding(props: Padding)
-	
 	local padding = props.Padding or 4
-	
-	local DefaultPadding = Computed(function() return UDim.new(0, unwrap(padding)) end)
-	
-	local Padding = New "UIPadding" {
-		
+
+	local DefaultPadding = Computed(function()
+		return UDim.new(0, unwrap(padding))
+	end)
+
+	local Padding = New("UIPadding")({
+
 		PaddingTop = DefaultPadding,
 		PaddingLeft = DefaultPadding,
 		PaddingRight = DefaultPadding,
-		PaddingBottom = DefaultPadding
-		
-	}
-	
+		PaddingBottom = DefaultPadding,
+	})
+
 	return Fusion.Hydrate(Padding)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
-	
 end
 
 return Padding

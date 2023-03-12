@@ -1,15 +1,15 @@
-# CubeCat
-CubeCat is a plugin framework to make plugin development easier.
+# GameComponents
+GameComponents is a plugin framework to make plugin development easier.
 
-## Why should you use CubeCat
+## Why should you use GameComponents
 ---
 
-CubeCat is used to write plugins that can easily interact with other plugins by
+GameComponents is used to write plugins that can easily interact with other plugins by
 adding ways to allow developers to write code which would interact with other
-plugins that use CubeCat.
+plugins that use GameComponents.
 
 Roblox's Plugin market is extremely unprofitable due to high rates which are hard
-to fix on Roblox's side. By using CubeCat, it becomes easy to integrate new features
+to fix on Roblox's side. By using GameComponents, it becomes easy to integrate new features
 into your plugin code through the use of other plugins. This means you could write
 a plugin to convert instances into Instance.new calls, then have another plugin which
 adds the ability for the previous plugin to convert instances into Fusion.New calls or
@@ -17,14 +17,14 @@ Roact.createElement calls. This allows users to pay only for what they need, sav
 money, while also allowing you to produce more features for your plugin that users
 can choose if they want to get or not and pay extra for.
 
-CubeCat's main benefit comes with writing a basic "Lite" plugin, that gives a small amount
+GameComponents's main benefit comes with writing a basic "Lite" plugin, that gives a small amount
 of features, then having multiple small feature packs for that Lite plugin that expands it
 into a very powerful full-sized tool.
 
 ## That's cool, but what is developing plugins like?
 ---
 
-CubeCat is designed around the concept of "interconnecting" with other CubeCat plugins.
+GameComponents is designed around the concept of "interconnecting" with other GameComponents plugins.
 We'll have to write code in a way that makes it easy to expand. Your plugin has to consist
 of Services and Components.
 
@@ -33,7 +33,7 @@ just saving some data to reading chunks of voxels. You'll also only be able to i
 with Services from other plugins, so make sure that you write services that allow you to
 inject a user interface into your plugin UI to allow for other plugins to expand upon that.
 
-Components are written using Fusion. CubeCat already provides a suite of components to be
+Components are written using Fusion. GameComponents already provides a suite of components to be
 used with your plugins. It's recommended to design your UI around reflecting the state of
 a Service, rather than maintaining internal state and passing that to other components.
 
@@ -70,7 +70,7 @@ Projects should probably be structured like the following:
 	- components/
 	- buttons.json
 
-CubeCat is available on Wally, and comes with multiple other libraries installed with it.
+GameComponents is available on Wally, and comes with multiple other libraries installed with it.
 
 ## Inspiration
 --
@@ -91,7 +91,7 @@ I'll list all my previous prototype frameworks before:
 	write and was built around the idea that a test would initiate the code. You could actually
 - PluginFramework3
 	PluginFramework3 failed because it was ultimately not what I wanted. It contained a ton of
-	the features you would see in CubeCat, but unlike CubeCat, PluginFramework3 lacked proper full
+	the features you would see in GameComponents, but unlike GameComponents, PluginFramework3 lacked proper full
 	interconnect functionality. It also had UI built and completely designed upon a buggy, experimental
 	library that didn't function well with the plugins I wrote.
 

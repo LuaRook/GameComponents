@@ -12,22 +12,20 @@ local New = Fusion.New
 type CanBeState<T> = Fusion.CanBeState<T>
 export type Image = {
 	Image: CanBeState<string>,
-	
-	[any]: any
+
+	[any]: any,
 }
 
 local function Image(props: Image)
-	
-	local Image = New "ImageButton" {
-		
+	local Image = New("ImageButton")({
+
 		Name = "ImageButton",
-		
+
 		Size = UDim2.fromOffset(32, 32),
-		
-		BackgroundTransparency = 1
-		
-	}
-	
+
+		BackgroundTransparency = 1,
+	})
+
 	return Fusion.Hydrate(Image)(props)
 end
 

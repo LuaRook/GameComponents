@@ -1,15 +1,15 @@
 {
-	"name": "CubeCat",
+	"name": "GameComponents",
 	
 	"tree": {
 		"$className": "DataModel",
 		
 		"ServerStorage": {
 			
-			"CubeCat": {
+			"GameComponents": {
 				"$path": "src/Packages",
 				
-				"CubeCat": {
+				"GameComponents": {
 					"$path": "src"
 				}
 				

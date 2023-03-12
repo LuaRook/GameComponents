@@ -1,6 +1,6 @@
 
-local CubeCat = script.Parent.Parent
-local Components = CubeCat.Components
+local GameComponents = script.Parent.Parent
+local Components = GameComponents.Components
 
 local AssetViewport = require(Components.Display.AssetViewport)
 
