@@ -3,3 +3,5 @@ src/wally.lock
 
 sourcemap.json
 .vscode
+
+*.rbxlx
