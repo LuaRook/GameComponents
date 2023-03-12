@@ -1,6 +1,6 @@
 [package]
-name = "aloroid/cubecat"
-description = "A plugin framework designed to allow for interconnecting with other plugins"
+name = "luarook/gamecomponents"
+description = "A fork of Aloroid's CubeCat made for Game Development"
 license = "MIT"
 version = "0.2.1"
 registry = "https://github.com/UpliftGames/wally-index"
