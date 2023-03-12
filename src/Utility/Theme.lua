@@ -15,35 +15,28 @@ local unwrap = require(Util.unwrap)
 local Value = Fusion.Value
 local Computed = Fusion.Computed
 
-local Studio: Studio = settings():GetService("Studio")
 local CurrentTheme = Value(Studio.Theme)
 
 type CanBeState<T> = Fusion.CanBeState<T>?
 type Computed<T> = Fusion.Computed<T>
 
-local function Theme(GuideColor: CanBeState<Enum.StudioStyleGuideColor>, GuideModifier: CanBeState<Enum.StudioStyleGuideModifier>): Computed<Color3 | StudioTheme>
-	
+local function Theme(
+	GuideColor: CanBeState<Enum.StudioStyleGuideColor>,
+	GuideModifier: CanBeState<Enum.StudioStyleGuideModifier>
+): Computed<Color3>
 	if GuideColor == nil then
 		return CurrentTheme
 	end
-	
+
 	return Computed(function()
-		
 		local guideColor = unwrap(GuideColor)
 		local guideModifier = unwrap(GuideModifier)
-		
+
 		return unwrap(CurrentTheme):GetColor(
 			guideColor or Enum.StudioStyleGuideColor.MainBackground,
 			guideModifier or Enum.StudioStyleGuideModifier.Default
 		)
-		
 	end, Fusion.doNothing)
-	
 end
-
-Studio.ThemeChanged:Connect(function(newTheme)
-	CurrentTheme:set(Studio.Theme)
-	
-end)
 
 return Theme

@@ -1,4 +1,3 @@
-
 local GameComponents = script.Parent.Parent
 local Packages = GameComponents.Parent
 local Components = GameComponents.Components
@@ -16,64 +15,52 @@ local OnEvent = Fusion.OnEvent
 local Children = Fusion.Children
 
 return function(target)
-	
 	local expanded = Value(false)
-	
-	local background = Background {
-		
+
+	local background = Background({
+
 		Parent = target,
-		
+
 		[Children] = {
-			
-			Expandable {
-				
+
+			Expandable({
+
 				Position = UDim2.fromScale(0.5, 0.5),
 				AnchorPoint = Vector2.new(0.5, 0),
-				
+
 				BackgroundTransparency = 0.5,
-				
+
 				Expanded = expanded,
-				
+
 				[Children] = {
-					
-					Text {
-						Text = "goodmorning everyone how are yall\nbecause i am doing GREAT!"
-						
-					},
-					
-					New "UIPadding" {
+
+					Text({
+						Text = "goodmorning everyone how are yall\nbecause i am doing GREAT!",
+					}),
+
+					New("UIPadding")({
 						PaddingTop = UDim.new(0, 32),
-						PaddingBottom = UDim.new(0, 32)
-						
-					}
-					
-				}
-				
-			},
-			
-			Button {
-		
+						PaddingBottom = UDim.new(0, 32),
+					}),
+				},
+			}),
+
+			Button({
+
 				Position = UDim2.new(0.5, 0, 1, -32),
 				AnchorPoint = Vector2.new(0.5, 1),
-				
+
 				Text = "Expand/Unexpand",
-				
-				[OnEvent "Activated"] = function()
+
+				[OnEvent("Activated")] = function()
 					print("updated to", not expanded:get())
 					expanded:set(not expanded:get())
-				end
-				
-			}
-			
-		}
-		
-	}
-	
-	
+				end,
+			}),
+		},
+	})
+
 	return function()
-		
 		background:Destroy()
-		
 	end
-	
 end

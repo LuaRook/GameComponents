@@ -18,14 +18,12 @@ local Packages = script.Parent.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
 
-local cachedComputeds = setmetatable({}, {__mode = "kvs"})
+local cachedComputeds = setmetatable({}, { __mode = "kvs" })
 local Computed = Fusion.Computed
 local Value = Fusion.Value
 
 local function Statify<T>(value: T): Fusion.Value<T>
-	
 	if type(value) == "table" and value.type == "State" then
-		
 		if value.kind == "Value" or value.kind == "Runtime" then
 			return value
 		else
@@ -33,15 +31,12 @@ local function Statify<T>(value: T): Fusion.Value<T>
 			cachedComputeds[redirect] = Computed(function()
 				redirect:set(value:get())
 			end)
-			
+
 			return redirect
 		end
-		
 	else
 		return Value(value)
-		
 	end
-	
 end
 
 return Statify

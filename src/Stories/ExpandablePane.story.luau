@@ -1,4 +1,3 @@
-
 local GameComponents = script.Parent.Parent
 local Packages = GameComponents.Parent
 local Components = GameComponents.Components
@@ -13,41 +12,31 @@ local ExpandablePane = require(Components.Interactable.ExpandablePane)
 local Children = Fusion.Children
 
 return function(target)
-	
-	local background = Background {
+	local background = Background({
 		Parent = target,
-		
+
 		[Children] = {
-			
-			ExpandablePane {
+
+			ExpandablePane({
 				PaneText = "Hello!",
-				
+
 				[Children] = {
-					
-					Button {
-						Text = "Sadge"
-						
-					},
-					
-					Text {
-						Text = "Hello there!"
-					}
-					
-				}
-			},
-			
-			ExpandablePane {
-				
-			}
-			
-		}
-		
-	}
-	
+
+					Button({
+						Text = "Sadge",
+					}),
+
+					Text({
+						Text = "Hello there!",
+					}),
+				},
+			}),
+
+			ExpandablePane({}),
+		},
+	})
+
 	return function()
-		
 		background:Destroy()
-		
 	end
-	
 end

@@ -15,26 +15,22 @@ type Computed<T> = Fusion.Computed<T>
 
 local Computed = Fusion.Computed
 
-local function guideState(selected: StateObject, disabled: StateObject, pressed: StateObject, hovering: StateObject): Computed<Enum.StudioStyleGuideModifier>
-	
+local function guideState(
+	selected: StateObject,
+	disabled: StateObject,
+	pressed: StateObject,
+	hovering: StateObject
+): Computed<Enum.StudioStyleGuideModifier>
 	return Computed(function()
-		
-		local value =
-			if unwrap(disabled) then
-				Enum.StudioStyleGuideModifier.Disabled
-			elseif unwrap(selected) then
-				Enum.StudioStyleGuideModifier.Selected
-			elseif unwrap(pressed) then
-				Enum.StudioStyleGuideModifier.Pressed
-			elseif unwrap(hovering) then
-				Enum.StudioStyleGuideModifier.Hover
-			else
-				Enum.StudioStyleGuideModifier.Default
-		
+		local value = if unwrap(disabled)
+			then Enum.StudioStyleGuideModifier.Disabled
+			elseif unwrap(selected) then Enum.StudioStyleGuideModifier.Selected
+			elseif unwrap(pressed) then Enum.StudioStyleGuideModifier.Pressed
+			elseif unwrap(hovering) then Enum.StudioStyleGuideModifier.Hover
+			else Enum.StudioStyleGuideModifier.Default
+
 		return value
-		
 	end, Fusion.doNothing)
-	
 end
 
 return guideState

@@ -30,17 +30,18 @@ type StudioStyleGuideModifier = Enum.StudioStyleGuideModifier
 
 local Computed = Fusion.Computed
 
-local function mapGuideColor(current: CanBeState<StudioStyleGuideModifier>, overwrites: {[StudioStyleGuideModifier]: Enum.StudioStyleGuideColor}): Computed<StudioStyleGuideColor>
-	
+local function mapGuideColor(
+	current: CanBeState<StudioStyleGuideModifier>,
+	overwrites: { [StudioStyleGuideModifier]: Enum.StudioStyleGuideColor }
+): Computed<StudioStyleGuideColor>
 	return Computed(function()
 		local currentOverwrites = unwrap(overwrites)
 		local currentModifier = unwrap(current)
-		
+
 		local result = currentOverwrites[currentModifier] or currentOverwrites[Enum.StudioStyleGuideModifier.Default]
-		
+
 		return result
 	end, Fusion.doNothing)
-	
 end
 
 return mapGuideColor

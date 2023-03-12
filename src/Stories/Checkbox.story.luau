@@ -1,4 +1,3 @@
-
 local GameComponents = script.Parent.Parent
 local Packages = GameComponents.Parent
 local Components = GameComponents.Components
@@ -9,61 +8,50 @@ local Checkbox = require(Components.Interactable.Checkbox)
 local Background = require(Components.Decoration.Background)
 local Text = require(Components.Display.Text)
 
-
 local Children = Fusion.Children
 
 return function(target)
-	
-	local background = Background {
-		
+	local background = Background({
+
 		Parent = target,
-		
+
 		[Children] = {
-			
-			Checkbox {
-				
+
+			Checkbox({
+
 				[Children] = {
-					Text {
+					Text({
 						Text = "Hello.",
-						LayoutOrder = -1
-					}
-					
-				}
-			},
-			
-			Checkbox {
-				
+						LayoutOrder = -1,
+					}),
+				},
+			}),
+
+			Checkbox({
+
 				[Children] = {
-					Text {
+					Text({
 						Text = "Hello.",
-						LayoutOrder = -1
-					}
-					
-				}
-			},
-			
-			Checkbox {
-				
+						LayoutOrder = -1,
+					}),
+				},
+			}),
+
+			Checkbox({
+
 				Size = UDim2.fromScale(1, 0),
-				
+
 				[Children] = {
-					Text {
+					Text({
 						Text = "Long one",
-						LayoutOrder = -1
-					}
-				}
-				
-			}
-			
-		}
-		
-	}
-	
-	
+						LayoutOrder = -1,
+					}),
+				},
+			}),
+		},
+	})
+
 	return function()
-		
 		background:Destroy()
-		
 	end
-	
 end

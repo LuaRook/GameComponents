@@ -1,4 +1,3 @@
-
 local GameComponents = script.Parent.Parent
 local Packages = GameComponents.Parent
 local Components = GameComponents.Components
@@ -11,29 +10,20 @@ local Pane = require(Components.Decoration.Pane)
 local Children = Fusion.Children
 
 return function(target)
-	
-	local background = Background {
+	local background = Background({
 		Parent = target,
-		
+
 		[Children] = {
-			
-			Pane {
-				PaneText = "Hello!"
-				
-			},
-			
-			Pane {
-				
-			}
-			
-		}
-		
-	}
-	
+
+			Pane({
+				PaneText = "Hello!",
+			}),
+
+			Pane({}),
+		},
+	})
+
 	return function()
-		
 		background:Destroy()
-		
 	end
-	
 end
