@@ -22,7 +22,7 @@ jobs:
 
     - name: Lint
       run: |
-        selene ./modules
+        selene ./src
 
   style:
     name: Styling
@@ -33,4 +33,4 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         version: v0.16.0
-        args: --check ./modules
+        args: --check ./src
