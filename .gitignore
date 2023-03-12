@@ -2,3 +2,4 @@ src/Packages
 src/wally.lock
 
 sourcemap.json
+.vscode
