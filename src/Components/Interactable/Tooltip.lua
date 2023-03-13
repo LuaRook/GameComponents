@@ -29,7 +29,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	Children,
 }
 
-local function Tooltip(props: Tooltip)
+return function(props: Tooltip)
 	local visible = Value(false)
 	local currentMousePosition = Value(Vector2.zero)
 	local absolutePosition = Value(Vector2.zero)
@@ -73,5 +73,3 @@ local function Tooltip(props: Tooltip)
 	})
 	return Fusion.Hydrate(Tooltip)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return Tooltip

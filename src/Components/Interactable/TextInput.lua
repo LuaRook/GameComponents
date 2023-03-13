@@ -71,7 +71,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	Children,
 }
 
-local function TextInput(props: TextInput)
+return function(props: TextInput)
 	local text = Statify(props.Text or "")
 	local fail = Value(false)
 	local message = Value("")
@@ -220,5 +220,3 @@ local function TextInput(props: TextInput)
 
 	return Fusion.Hydrate(TextInput)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return TextInput

@@ -58,7 +58,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	"NoPadding",
 }
 
-local function Background(props: Background)
+return function(props: Background)
 	local padding = props.Padding or 8
 	local listPadding = props.ListPadding or 6
 
@@ -109,5 +109,3 @@ local function Background(props: Background)
 
 	return Fusion.Hydrate(Background)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return Background

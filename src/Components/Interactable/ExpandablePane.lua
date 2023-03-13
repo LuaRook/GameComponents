@@ -45,7 +45,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	Children,
 }
 
-local function ExpandablePane(props: ExpandablePane)
+return function(props: ExpandablePane)
 	local expanded = Statify(props.Expanded or false)
 	local hovering = Value(false)
 	local contentSize = Value(Vector2.zero)
@@ -166,5 +166,3 @@ local function ExpandablePane(props: ExpandablePane)
 
 	return Fusion.Hydrate(ExpandablePane)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return ExpandablePane

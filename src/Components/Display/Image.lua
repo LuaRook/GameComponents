@@ -21,7 +21,7 @@ export type Image = {
 
 local COMPONENT_ONLY_PROPERTIES = {}
 
-local function Image(props: Image)
+return function(props: Image)
 	local Image = New("ImageLabel")({
 
 		Name = "Image",
@@ -33,5 +33,3 @@ local function Image(props: Image)
 
 	return Fusion.Hydrate(Image)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return Image

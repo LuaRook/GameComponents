@@ -16,7 +16,7 @@ export type Image = {
 	[any]: any,
 }
 
-local function Image(props: Image)
+return function(props: Image)
 	local Image = New("ImageButton")({
 
 		Name = "ImageButton",
@@ -28,5 +28,3 @@ local function Image(props: Image)
 
 	return Fusion.Hydrate(Image)(props)
 end
-
-return Image

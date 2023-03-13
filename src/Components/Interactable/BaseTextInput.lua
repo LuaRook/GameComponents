@@ -55,8 +55,8 @@ local COMPONENT_ONLY_PROPERTIES = {
 	"FocusLost",
 }
 
-local function BaseTextInput(props: BaseTextInput)
-	local fontFace = props.Font or Enum.Font.SourceSans --props.FontFace or Font.fromEnum(Enum.Font.SourceSans)
+return function(props: BaseTextInput)
+	local fontFace = props.Font or Enum.Font.SourceSans
 	local textSize = props.TextSize or 18
 	local disabled = props.Disabled
 	local focused = Statify(props.Focused or false)
@@ -65,19 +65,7 @@ local function BaseTextInput(props: BaseTextInput)
 	local textBox = Value()
 	local cursorPosition = Value(0)
 	local textBoxClipAbsoluteSize = Value(Vector2.zero)
-	--[[local textParams = Computed(function()
-		local params = Instance.new("GetTextBoundsParams")
-		local text = unwrap(text)
-		local font = unwrap(fontFace)
-		local textSize = unwrap(textSize)
-		
-		params.Text = text
-		params.Font = font
-		params.Size = textSize
-		params.Width = 0
-		
-		return params
-	end)]]
+
 	local textOffset = Computed(function()
 		local textBox: TextBox = unwrap(textBox)
 
@@ -185,5 +173,3 @@ local function BaseTextInput(props: BaseTextInput)
 
 	return Fusion.Hydrate(BaseTextInput)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return BaseTextInput

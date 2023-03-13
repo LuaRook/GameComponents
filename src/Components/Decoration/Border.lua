@@ -34,7 +34,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	"BorderModifier",
 }
 
-local function Border(props: Border)
+return function(props: Border)
 	local BorderColor = props.BorderColor or Enums.GuideColor.Border
 	local BorderModifier = props.BorderModifier
 
@@ -48,5 +48,3 @@ local function Border(props: Border)
 
 	return Fusion.Hydrate(Border)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return Border

@@ -33,7 +33,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	Children,
 }
 
-local function Teleporter(props: Teleporter)
+return function(props: Teleporter)
 	local refLayerCollector = props.LayerCollector or Value()
 
 	local realSize = Value()
@@ -125,5 +125,3 @@ local function Teleporter(props: Teleporter)
 
 	return Hydrate(TopLayer)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return Teleporter

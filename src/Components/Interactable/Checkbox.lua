@@ -35,7 +35,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	Children,
 }
 
-local function Checkbox(props: Checkbox)
+return function(props: Checkbox)
 	local disabled = props.Disabled
 	local checked = Statify(props.Checked)
 
@@ -116,5 +116,3 @@ local function Checkbox(props: Checkbox)
 
 	return Fusion.Hydrate(Checkbox)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return Checkbox

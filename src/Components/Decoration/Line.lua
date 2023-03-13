@@ -33,7 +33,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	"LineModifier",
 }
 
-local function Line(props: Line)
+return function(props: Line)
 	local LineThickness = props.LineThickness or 2
 	local LineColor = props.LineColor or Enums.GuideColor.DimmedText
 	local LineModifier = props.LineModifier
@@ -62,5 +62,3 @@ local function Line(props: Line)
 
 	return Fusion.Hydrate(Line)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return Line

@@ -33,7 +33,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 }
 local CORNER_RADIUS = 3
 
-local function Pane(props: Pane)
+return function(props: Pane)
 	local Pane = Background({
 
 		Size = UDim2.new(1, 0, 0, 32),
@@ -86,5 +86,3 @@ local function Pane(props: Pane)
 
 	return Fusion.Hydrate(Pane)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return Pane

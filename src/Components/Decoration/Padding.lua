@@ -32,7 +32,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	"Padding",
 }
 
-local function Padding(props: Padding)
+return function(props: Padding)
 	local padding = props.Padding or 4
 
 	local DefaultPadding = Computed(function()
@@ -49,5 +49,3 @@ local function Padding(props: Padding)
 
 	return Fusion.Hydrate(Padding)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return Padding

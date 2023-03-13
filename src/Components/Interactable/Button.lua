@@ -74,7 +74,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 }
 local CORNER_RADIUS = 3
 
-local function Button(props: Button)
+return function(props: Button)
 	local Disabled = props.Disabled or false
 	local Selected = props.Selected or false
 	local Pressed = Statify(props.Pressed or false)
@@ -182,5 +182,3 @@ local function Button(props: Button)
 
 	return Fusion.Hydrate(Button)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return Button

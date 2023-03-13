@@ -51,7 +51,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	"DoNotOverwriteCFrame",
 }
 
-local function AssetViewport(props: AssetViewport)
+return function(props: AssetViewport)
 	local noOverwrite = props.DoNotOverwriteCFrame
 	local objectCFrame = props.ObjectCFrame or CFrame.new()
 	local cframe = Statify(props.CFrame)
@@ -182,4 +182,3 @@ local function AssetViewport(props: AssetViewport)
 	return Fusion.Hydrate(AssetViewport)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
 
-return AssetViewport

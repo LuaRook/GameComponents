@@ -55,7 +55,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	"Focused",
 }
 
-local function BaseTextInput(props: BaseTextInput)
+return function(props: BaseTextInput)
 	local fontFace = props.Font or Enum.Font.SourceSans --props.FontFace or Font.fromEnum(Enum.Font.SourceSans)
 	local textSize = props.TextSize or 18
 	local disabled = props.Disabled
@@ -132,5 +132,3 @@ local function BaseTextInput(props: BaseTextInput)
 
 	return Fusion.Hydrate(BaseTextInput)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return BaseTextInput

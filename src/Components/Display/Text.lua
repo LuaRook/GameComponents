@@ -33,7 +33,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	"TextModifier",
 }
 
-local function Text(props: Text)
+return function(props: Text)
 	local TextColor3 = Spring(Theme(props.TextColor or Enums.GuideColor.MainText, props.TextModifier), 40, 1)
 
 	local Text = New("TextLabel")({
@@ -52,5 +52,3 @@ local function Text(props: Text)
 
 	return Fusion.Hydrate(Text)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return Text

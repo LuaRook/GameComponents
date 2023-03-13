@@ -47,7 +47,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	"MaxItems",
 }
 
-local function Dropdown(props: Dropdown)
+return function(props: Dropdown)
 	local expanded = Value(false)
 	local dropdownItems = props.DropdownItems
 	local selected = Statify(props.Selected or "")
@@ -181,4 +181,3 @@ local function Dropdown(props: Dropdown)
 	return Fusion.Hydrate(Dropdown)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
 
-return Dropdown

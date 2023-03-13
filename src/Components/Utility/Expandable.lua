@@ -38,7 +38,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	Children,
 }
 
-local function Expandable(props: Expandable)
+return function(props: Expandable)
 	local expanded = props.Expanded
 
 	local contentSize = Value(Vector2.zero)
@@ -77,5 +77,3 @@ local function Expandable(props: Expandable)
 
 	return Fusion.Hydrate(Expandable)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return Expandable

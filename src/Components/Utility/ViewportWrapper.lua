@@ -31,7 +31,7 @@ export type ViewportWrapper = {
 	[any]: any,
 }
 
-local function ViewportWrapper(props: ViewportWrapper)
+return function(props: ViewportWrapper)
 	local parent = Value()
 	local update = Value()
 	local layerCollector = Computed(function()
@@ -115,5 +115,3 @@ local function ViewportWrapper(props: ViewportWrapper)
 
 	return Hydrate(ViewportWrapper)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return ViewportWrapper

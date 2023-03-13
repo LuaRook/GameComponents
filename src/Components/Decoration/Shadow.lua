@@ -37,7 +37,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	"Transparency",
 }
 
-local function Shadow(props: Shadow)
+return function(props: Shadow)
 	local Transparency = props.Transparency
 
 	local Shadow = Image({
@@ -62,5 +62,3 @@ local function Shadow(props: Shadow)
 
 	return Fusion.Hydrate(Shadow)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return Shadow
