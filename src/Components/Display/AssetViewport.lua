@@ -181,4 +181,3 @@ return function(props: AssetViewport)
 
 	return Fusion.Hydrate(AssetViewport)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
