@@ -1,6 +1,6 @@
 [package]
 name = "luarook/gamecomponents"
-description = "A fork of Aloroid's GameComponents made for Game Development"
+description = "A fork of Aloroid's CubeCat framework for developing game interfaces."
 license = "MIT"
 version = "0.0.1"
 registry = "https://github.com/UpliftGames/wally-index"
