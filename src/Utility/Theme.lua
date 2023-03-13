@@ -51,15 +51,15 @@ end)
 for name, fn in Themes do
 	local themeData = fn(Enums)
 
-	function data:GetColor(GuideColor: any, GuideModifier: any?)
-		local color = data[GuideColor][GuideModifier]
+	function themeData:GetColor(GuideColor: any, GuideModifier: any?)
+		local color = themeData[GuideColor][GuideModifier]
 		if not color then
 			return themeData[GuideColor][Enums.GuideModifier.Default]
 		end
 
 		return themeData
 	end
-	function data:SetAsTheme()
+	function themeData:SetAsTheme()
 		ThemeChanged:Fire(themeData)
 	end
 
