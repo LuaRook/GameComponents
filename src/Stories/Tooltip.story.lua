@@ -18,12 +18,12 @@ return function(target)
 		AnchorPoint = Vector2.new(0.5, 0.5),
 
 		Text = "Hello World!",
-		
+
 		[Children] = Tooltip({
 			[Children] = New("Frame")({
 				Size = UDim2.fromOffset(50, 50),
-			})
-		})
+			}),
+		}),
 	})
 
 	return function()

@@ -180,4 +180,3 @@ return function(props: Dropdown)
 
 	return Fusion.Hydrate(Dropdown)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
