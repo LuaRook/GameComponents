@@ -57,7 +57,7 @@ for name, fn in Themes do
 			return themeData[GuideColor][Enums.GuideModifier.Default]
 		end
 
-		return themeData
+		return color
 	end
 	function themeData:SetAsTheme()
 		ThemeChanged:Fire(themeData)
