@@ -1,22 +1,20 @@
 {
 	"name": "GameComponents",
-	
 	"tree": {
 		"$className": "DataModel",
-		
-		"ServerStorage": {
-			
-			"GameComponents": {
+		"ReplicatedStorage": {
+			"Packages": {
 				"$path": "src/Packages",
-				
 				"GameComponents": {
 					"$path": "src"
 				}
-				
+			},
+			"Common": {
+				"$className": "Folder",
+				"Themes": {
+					"$path": "test/Themes"
+				}
 			}
-			
 		}
-		
 	}
-	
 }

@@ -10,13 +10,11 @@ local Packages = script.Parent.Parent.Parent
 local Fusion = require(Packages.Fusion)
 
 local function unwrap<T>(value: Fusion.CanBeState<T>, captureDependencies: boolean?): T
-	
 	if type(value) == "table" and value.type == "State" then
 		return value:get(captureDependencies)
 	else
 		return value :: T
 	end
-	
 end
 
 return unwrap
