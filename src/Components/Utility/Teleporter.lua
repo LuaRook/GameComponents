@@ -1,5 +1,5 @@
 --[[
-	TopLayer is a special utility component that is used to bring nested components
+	Teleporter is a special utility component that is used to bring nested components
 	to the top of the UI so that it will be over all the other UI.
 	This can be used for Tooltips, Dropdowns and other UI that has to overlay.
 	
@@ -25,7 +25,7 @@ local unwrap = Util.unwrap
 local stripProps = Util.stripProps
 
 type CanBeState<T> = Fusion.CanBeState<T>
-export type TopLayer = {
+export type Teleporter = {
 	[any]: any,
 }
 
@@ -33,7 +33,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	Children,
 }
 
-local function TopLayer(props: TopLayer)
+local function Teleporter(props: Teleporter)
 	local refLayerCollector = props.LayerCollector or Value()
 
 	local realSize = Value()
@@ -126,4 +126,4 @@ local function TopLayer(props: TopLayer)
 	return Hydrate(TopLayer)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
 
-return TopLayer
+return Teleporter

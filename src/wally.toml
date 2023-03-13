@@ -2,7 +2,7 @@
 name = "luarook/gamecomponents"
 description = "A fork of Aloroid's CubeCat framework for developing game interfaces."
 license = "MIT"
-version = "0.1.0"
+version = "0.1.1"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 

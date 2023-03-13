@@ -23,6 +23,7 @@ local GameComponents = {
 		ExpandablePane = require(Components.Interactable.ExpandablePane),
 		ImageButton = require(Components.Interactable.ImageButton),
 		TextInput = require(Components.Interactable.TextInput),
+		Tooltip = require(Components.Interactable.Tooltip),
 
 		List = require(Components.Optimization.List),
 	},

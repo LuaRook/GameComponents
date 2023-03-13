@@ -23,7 +23,7 @@ local unwrap = Util.unwrap
 local stripProps = Util.stripProps
 
 type CanBeState<T> = Fusion.CanBeState<T>
-export type Background = {
+export type ScrollingFrame = {
 	Position: CanBeState<UDim2>?,
 	Size: CanBeState<UDim2>?,
 	AnchorPoint: CanBeState<Vector2>?,
@@ -37,6 +37,7 @@ export type Background = {
 	HorizontalAlignment: CanBeState<Enum.HorizontalAlignment>?,
 	VerticalAlignment: CanBeState<Enum.VerticalAlignment>?,
 	SortDirection: CanBeState<Enum.SortDirection>?,
+	StartCorner: CanBeState<Enum.SortDirection>?,
 
 	NoList: CanBeState<boolean>?,
 	NoPadding: CanBeState<boolean>?,
@@ -52,11 +53,13 @@ local COMPONENT_ONLY_PROPERTIES = {
 	"HorizontalAlignment",
 	"VerticalAlignment",
 	"SortDirection",
+	"FillDirection",
+	"StartCorner",
 	"NoList",
 	"NoPadding",
 }
 
-local function Background(props: Background)
+return function(props: ScrollingFrame)
 	local padding = props.Padding or 8
 	local listPadding = props.ListPadding or 6
 
@@ -67,7 +70,7 @@ local function Background(props: Background)
 
 	local Background = New("ScrollingFrame")({
 
-		Name = "Background",
+		Name = "ScrollFrame",
 
 		Size = UDim2.fromScale(1, 1),
 		CanvasSize = UDim2.fromScale(0, 0),
@@ -82,7 +85,7 @@ local function Background(props: Background)
 		[Children] = {
 
 			Computed(function()
-				if unwrap(props.NoPadding) then
+				if unwrap(props.NoLayout) then
 					return
 				end
 
@@ -94,23 +97,21 @@ local function Background(props: Background)
 			Computed(function()
 				if unwrap(props.NoList) then
 					return nil
-				else
-					return New("UIListLayout")({
-						SortOrder = Enum.SortOrder.LayoutOrder,
-						Padding = Computed(function()
-							return UDim.new(0, unwrap(listPadding))
-						end),
-
-						SortDirection = props.SortDirection,
-						HorizontalAlignment = props.HorizontalAlignment,
-						VerticalAlignment = props.VerticalAlignment,
-					})
 				end
+
+				return New("UIListLayout")({
+					SortOrder = Enum.SortOrder.LayoutOrder,
+					Padding = Computed(function()
+						return UDim.new(0, unwrap(listPadding))
+					end),
+
+					SortDirection = props.SortDirection,
+					HorizontalAlignment = props.HorizontalAlignment,
+					VerticalAlignment = props.VerticalAlignment,
+				})
 			end, Fusion.cleanup),
 		},
 	})
 
 	return Fusion.Hydrate(Background)(stripProps(props, COMPONENT_ONLY_PROPERTIES))
 end
-
-return Background

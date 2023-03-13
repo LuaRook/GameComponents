@@ -48,23 +48,25 @@ ThemeChanged:Connect(function(theme)
 	CurrentTheme:set(theme)
 end)
 
-for name, data in Themes do
-	data.Name = name
+for name, fn in Themes do
+	local themeData = fn(Enums)
 
 	function data:GetColor(GuideColor: any, GuideModifier: any?)
 		local color = data[GuideColor][GuideModifier]
 		if not color then
-			return data[GuideColor][Enums.GuideModifier.Default]
+			return themeData[GuideColor][Enums.GuideModifier.Default]
 		end
 
-		return color
+		return themeData
 	end
 	function data:SetAsTheme()
-		ThemeChanged:Fire(data)
+		ThemeChanged:Fire(themeData)
 	end
 
-	if data.Default then
-		data:SetAsTheme()
+	themeData.Name = name
+
+	if themeData.Default then
+		themeData:SetAsTheme()
 	end
 end
 
