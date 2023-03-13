@@ -11,6 +11,9 @@ local unwrap = Util.unwrap
 
 type CanBeState<T> = Fusion.CanBeState<T>
 export type Grid = {
+	CellPadding: CanBeState<UDim2>?,
+	CellSize: CanBeState<UDim2>?,
+
 	HorizontalAlignment: CanBeState<Enum.HorizontalAlignment>?,
 	VerticalAlignment: CanBeState<Enum.VerticalAlignment>?,
 
@@ -21,6 +24,8 @@ export type Grid = {
 }
 
 local COMPONENT_ONLY_PROPERTIES = {
+	"CellPadding",
+	"CellSize",
 	"HorizontalAlignment",
 	"VerticalAlignment",
 	"FillDirection",
@@ -33,6 +38,9 @@ return function(props: GridList)
 	local Grid = New("UIGridLayout")({
 		CellPadding = cellPadding,
 		CellSize = props.cellSize,
+
+		HorizontalAlignment = props.HorizontalAlignment,
+		VerticalAlignment = props.VerticalAlignment,
 
 		FillDirection = props.FillDirection,
 		StartCorner = props.StartCorner,
