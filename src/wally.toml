@@ -9,3 +9,4 @@ realm = "shared"
 [dependencies]
 Fusion = "elttob/fusion@0.2.0"
 EnumList = "sleitnick/enum-list@2.0.1"
+Signal = "sleitnick/signal@1.4.0"

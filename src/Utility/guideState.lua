@@ -6,8 +6,10 @@
 
 local Packages = script.Parent.Parent.Parent
 local Util = script.Parent
+local GameComponents = script.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
+local Enums = require(GameComponents.Enums)
 local unwrap = require(Util.unwrap)
 
 type StateObject = Fusion.CanBeState<boolean>?
@@ -23,11 +25,11 @@ local function guideState(
 ): Computed<any>
 	return Computed(function()
 		local value = if unwrap(disabled)
-			then Enum.StudioStyleGuideModifier.Disabled
-			elseif unwrap(selected) then Enum.StudioStyleGuideModifier.Selected
-			elseif unwrap(pressed) then Enum.StudioStyleGuideModifier.Pressed
-			elseif unwrap(hovering) then Enum.StudioStyleGuideModifier.Hover
-			else Enum.StudioStyleGuideModifier.Default
+			then Enums.GuideModifier.Disabled
+			elseif unwrap(selected) then Enums.GuideModifier.Selected
+			elseif unwrap(pressed) then Enums.GuideModifier.Pressed
+			elseif unwrap(hovering) then Enums.GuideModifier.Hover
+			else Enums.GuideModifier.Default
 
 		return value
 	end, Fusion.doNothing)

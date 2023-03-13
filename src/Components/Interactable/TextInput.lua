@@ -17,6 +17,7 @@ local Components = script.Parent.Parent
 local GameComponents = script.Parent.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
+local Enums = require(GameComponents.Enums)
 local Util = require(GameComponents.Utility)
 
 local Background = require(Components.Decoration.Background)
@@ -153,12 +154,12 @@ local function TextInput(props: TextInput)
 				Selected = focused,
 				Disabled = disabled,
 
-				BackgroundColor = Enum.StudioStyleGuideColor.InputFieldBackground,
+				BackgroundColor = Enums.GuideColor.InputFieldBackground,
 				BorderColor = Computed(function()
 					if unwrap(fail) then
-						return Enum.StudioStyleGuideColor.ErrorText
+						return Enums.GuideColor.ErrorText
 					else
-						return Enum.StudioStyleGuideColor.InputFieldBorder
+						return Enums.GuideColor.InputFieldBorder
 					end
 				end),
 
@@ -187,9 +188,9 @@ local function TextInput(props: TextInput)
 				Text = message,
 				TextColor = Computed(function()
 					if unwrap(fail) then
-						return Enum.StudioStyleGuideColor.ErrorText
+						return Enums.GuideColor.ErrorText
 					else
-						return Enum.StudioStyleGuideColor.DimmedText
+						return Enums.GuideColor.DimmedText
 					end
 				end),
 

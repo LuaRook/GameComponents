@@ -3,6 +3,7 @@ local Components = script.Parent.Parent
 local GameComponents = script.Parent.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
+local Enums = require(GameComponents.Enums)
 local Util = require(GameComponents.Utility)
 
 local Text = require(Components.Display.Text)
@@ -84,8 +85,8 @@ local function Button(props: Button)
 	local BackgroundModifier = props.BackgroundModifier or GeneralModifier
 	local BackgroundColor = Spring(
 		Theme(props.BackgroundColor or mapGuideModifier(BackgroundModifier, {
-			[Enum.StudioStyleGuideModifier.Default] = Enum.StudioStyleGuideColor.Button,
-			[Enum.StudioStyleGuideModifier.Disabled] = Enum.StudioStyleGuideColor.InputFieldBackground,
+			[Enums.GuideModifier.Default] = Enums.GuideColor.Button,
+			[Enums.GuideModifier.Disabled] = Enums.GuideColor.InputFieldBackground,
 		}), BackgroundModifier),
 		120,
 		1
@@ -93,15 +94,15 @@ local function Button(props: Button)
 	local BorderModifier = props.BorderModifier or GeneralModifier
 	local BorderColor = Spring(
 		Theme(props.BorderColor or mapGuideModifier(BorderModifier, {
-			[Enum.StudioStyleGuideModifier.Default] = Enum.StudioStyleGuideColor.Border,
-			[Enum.StudioStyleGuideModifier.Selected] = Enum.StudioStyleGuideColor.MainButton,
-			[Enum.StudioStyleGuideModifier.Disabled] = Enum.StudioStyleGuideColor.Button,
+			[Enums.GuideModifier.Default] = Enums.GuideColor.Border,
+			[Enums.GuideModifier.Selected] = Enums.GuideColor.MainButton,
+			[Enums.GuideModifier.Disabled] = Enums.GuideColor.Button,
 		}), BorderModifier),
 		80,
 		1
 	)
 	local TextModifier = props.TextModifier or GeneralModifier
-	local TextColor = Spring(Theme(props.TextColor or Enum.StudioStyleGuideColor.ButtonText, TextModifier), 100, 1)
+	local TextColor = Spring(Theme(props.TextColor or Enums.GuideColor.ButtonText, TextModifier), 100, 1)
 
 	local Button = New("TextButton")({
 

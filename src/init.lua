@@ -2,6 +2,7 @@ local Components = script.Components
 
 local GameComponents = {
 	Runtime = require(script.Runtime),
+	Enums = require(script.Enums),
 
 	Components = {
 		Background = require(Components.Decoration.Background),

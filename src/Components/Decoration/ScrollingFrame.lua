@@ -8,6 +8,7 @@ local Components = script.Parent.Parent
 local GameComponents = script.Parent.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
+local Enums = require(GameComponents.Enums)
 local Util = require(GameComponents.Utility)
 
 local Padding = require(Components.Decoration.Padding)
@@ -59,7 +60,7 @@ local function Background(props: Background)
 	local padding = props.Padding or 8
 	local listPadding = props.ListPadding or 6
 
-	local BackgroundColor = props.BackgroundColor or Enum.StudioStyleGuideColor.MainBackground
+	local BackgroundColor = props.BackgroundColor or Enums.GuideColor.MainBackground
 	local BackgroundModifier = props.BackgroundModifier
 
 	local BackgroundColor3 = Spring(Theme(BackgroundColor, BackgroundModifier), 40, 1)
@@ -74,7 +75,7 @@ local function Background(props: Background)
 
 		BackgroundColor3 = BackgroundColor3,
 
-		ScrollBarImageColor3 = Theme(Enum.StudioStyleGuideColor.ScrollBar, Enum.StudioStyleGuideModifier.Hover),
+		ScrollBarImageColor3 = Theme(Enums.GuideColor.ScrollBar, Enums.GuideModifier.Hover),
 		ScrollBarThickness = 6,
 		VerticalScrollBarInset = Enum.ScrollBarInset.ScrollBar,
 

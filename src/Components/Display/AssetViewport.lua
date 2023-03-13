@@ -8,6 +8,7 @@ local GameComponents = script.Parent.Parent.Parent
 local Components = script.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
+local Enums = require(GameComponents.Enums)
 local Util = require(GameComponents.Utility)
 
 local Background = require(Components.Decoration.Background)
@@ -112,11 +113,11 @@ local function AssetViewport(props: AssetViewport)
 	local AssetViewport = Background({
 
 		Size = UDim2.fromOffset(256, 256),
-		BackgroundColor = Enum.StudioStyleGuideColor.ViewPortBackground,
+		BackgroundColor = Enums.GuideColor.ViewPortBackground,
 
 		[Children] = {
 			Border({
-				BorderColor = Enum.StudioStyleGuideColor.InputFieldBorder,
+				BorderColor = Enums.GuideColor.InputFieldBorder,
 			}),
 			New("UICorner")({
 				CornerRadius = UDim.new(0, 8),

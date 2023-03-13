@@ -3,6 +3,7 @@ local Components = script.Parent.Parent
 local GameComponents = script.Parent.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
+local Enums = require(GameComponents.Enums)
 local Util = require(GameComponents.Utility)
 
 local Background = require(Components.Decoration.Background)
@@ -64,7 +65,7 @@ local function Pane(props: Pane)
 
 				[Children] = Text({
 					Text = props.PaneText,
-					TextColor = Enum.StudioStyleGuideColor.DimmedText,
+					TextColor = Enums.GuideColor.DimmedText,
 
 					TextSize = 14,
 				}),

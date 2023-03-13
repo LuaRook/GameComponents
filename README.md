@@ -51,7 +51,7 @@ New "Frame" {
 	Position = UDim2.new(0, 0, 0, 24),
 	Size = UDim2.new(1, 0, 0, 32),
 	
-	BackgroundColor3 = Theme:GetColor(Enum.StudioStyleGuideColor.Background),
+	BackgroundColor3 = Theme:GetColor(Enums.GuideColor.Background),
 	
 	[Children] = TabsService:GetTabs()
 	[Export "Tabs"] = {StateObject<any>}

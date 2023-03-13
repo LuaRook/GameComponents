@@ -7,6 +7,7 @@ local Packages = script.Parent.Parent.Parent.Parent
 local GameComponents = script.Parent.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
+local Enums = require(GameComponents.Enums)
 local Util = require(GameComponents.Utility)
 
 local New = Fusion.New
@@ -34,7 +35,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 }
 
 local function Border(props: Border)
-	local BorderColor = props.BorderColor or Enum.StudioStyleGuideColor.Border
+	local BorderColor = props.BorderColor or Enums.GuideColor.Border
 	local BorderModifier = props.BorderModifier
 
 	local BorderColor3 = Spring(Theme(BorderColor, BorderModifier), 40, 1)

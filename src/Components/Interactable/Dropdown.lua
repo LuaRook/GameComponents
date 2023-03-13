@@ -3,6 +3,7 @@ local Components = script.Parent.Parent
 local GameComponents = script.Parent.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
+local Enums = require(GameComponents.Enums)
 local Util = require(GameComponents.Utility)
 
 local Expandable = require(Components.Utility.Expandable)
@@ -57,7 +58,7 @@ local function Dropdown(props: Dropdown)
 
 		Size = UDim2.fromOffset(200, 32),
 
-		BackgroundColor = Enum.StudioStyleGuideColor.EmulatorDropDown,
+		BackgroundColor = Enums.GuideColor.EmulatorDropDown,
 
 		Text = Computed(function()
 			return unwrap(selected) or ""
@@ -158,8 +159,8 @@ local function Dropdown(props: Dropdown)
 													AutomaticSize = Enum.AutomaticSize.X,
 
 													Text = value,
-													BackgroundColor = Enum.StudioStyleGuideColor.EmulatorDropDown,
-													BorderColor = Enum.StudioStyleGuideColor.EmulatorDropDown,
+													BackgroundColor = Enums.GuideColor.EmulatorDropDown,
+													BorderColor = Enums.GuideColor.EmulatorDropDown,
 
 													[OnEvent("Activated")] = function()
 														expanded:set(false)

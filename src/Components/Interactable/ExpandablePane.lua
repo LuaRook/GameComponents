@@ -3,7 +3,9 @@ local Components = script.Parent.Parent
 local GameComponents = script.Parent.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
+local Enums = require(GameComponents.Enums)
 local Util = require(GameComponents.Utility)
+
 local Background = require(Components.Decoration.Background)
 local Button = require(Components.Interactable.Button)
 local Expandable = require(Components.Utility.Expandable)
@@ -58,7 +60,7 @@ local function ExpandablePane(props: ExpandablePane)
 		end),
 		AutomaticSize = Enum.AutomaticSize.X,
 
-		BackgroundColor = Enum.StudioStyleGuideColor.EmulatorDropDown,
+		BackgroundColor = Enums.GuideColor.EmulatorDropDown,
 		Text = "",
 		FillDirection = Enum.FillDirection.Vertical,
 		VerticalAlignment = Enum.VerticalAlignment.Top,

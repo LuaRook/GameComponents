@@ -8,6 +8,7 @@ local Packages = script.Parent.Parent.Parent.Parent
 local GameComponents = script.Parent.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
+local Enums = require(GameComponents.Enums)
 local Util = require(GameComponents.Utility)
 
 local New = Fusion.New
@@ -159,8 +160,8 @@ local function BaseTextInput(props: BaseTextInput)
 
 			Text = text,
 			PlaceholderText = props.PlaceholderText,
-			TextColor3 = props.TextColor3 or Theme(Enum.StudioStyleGuideColor.MainText),
-			PlaceholderColor3 = props.PlaceholderColor3 or Theme(Enum.StudioStyleGuideColor.DimmedText),
+			TextColor3 = props.TextColor3 or Theme(Enums.GuideColor.MainText),
+			PlaceholderColor3 = props.PlaceholderColor3 or Theme(Enums.GuideColor.DimmedText),
 			TextSize = textSize,
 			TextXAlignment = Enum.TextXAlignment.Left,
 			TextYAlignment = Enum.TextYAlignment.Center,

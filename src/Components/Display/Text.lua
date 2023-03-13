@@ -7,6 +7,7 @@ local Packages = script.Parent.Parent.Parent.Parent
 local GameComponents = script.Parent.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
+local Enums = require(GameComponents.Enums)
 local Util = require(GameComponents.Utility)
 
 local New = Fusion.New
@@ -33,8 +34,8 @@ local COMPONENT_ONLY_PROPERTIES = {
 }
 
 local function Text(props: Text)
-	local TextColor3 = Spring(Theme(props.TextColor or Enum.StudioStyleGuideColor.MainText, props.TextModifier), 40, 1)
-
+	local TextColor3 = Spring(Theme(props.TextColor or Enums.GuideColor.MainText, props.TextModifier), 40, 1)
+	
 	local Text = New("TextLabel")({
 
 		Name = "Text",

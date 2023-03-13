@@ -2,6 +2,7 @@ local Packages = script.Parent.Parent.Parent.Parent
 local GameComponents = script.Parent.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
+local Enums = require(GameComponents.Enums)
 local Util = require(GameComponents.Utility)
 
 local New = Fusion.New
@@ -34,7 +35,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 
 local function Line(props: Line)
 	local LineThickness = props.LineThickness or 2
-	local LineColor = props.LineColor or Enum.StudioStyleGuideColor.DimmedText
+	local LineColor = props.LineColor or Enums.GuideColor.DimmedText
 	local LineModifier = props.LineModifier
 
 	local LineColor3 = Spring(Theme(LineColor, LineModifier), 40, 1)

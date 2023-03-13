@@ -12,6 +12,7 @@ local Components = script.Parent.Parent
 local GameComponents = script.Parent.Parent.Parent
 
 local Fusion = require(Packages.Fusion)
+local Enums = require(GameComponents.Enums)
 local Util = require(GameComponents.Utility)
 
 local Image = require(Components.Display.Image)
@@ -47,7 +48,7 @@ local function Shadow(props: Shadow)
 		AutomaticSize = Enum.AutomaticSize.XY,
 
 		Image = "rbxasset://textures/StudioSharedUI/dropShadow.png",
-		ImageColor3 = Theme(Enum.StudioStyleGuideColor.Midlight),
+		ImageColor3 = Theme(Enums.GuideColor.Midlight),
 		ImageTransparency = Transparency,
 
 		ScaleType = Enum.ScaleType.Slice,
