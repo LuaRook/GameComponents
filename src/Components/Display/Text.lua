@@ -22,8 +22,8 @@ export type Text = {
 	AnchorPoint: CanBeState<UDim2>?,
 
 	Text: CanBeState<string>,
-	TextColor: CanBeState<Enum.StudioStyleGuideColor>?,
-	TextModifier: CanBeState<Enum.StudioStyleGuideModifier>?,
+	TextColor: CanBeState<any>?,
+	TextModifier: CanBeState<any>?,
 }
 
 local COMPONENT_ONLY_PROPERTIES = {

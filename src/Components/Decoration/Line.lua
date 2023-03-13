@@ -20,8 +20,8 @@ export type Line = {
 	AnchorPoint: CanBeState<Vector2>?,
 
 	LineThickness: CanBeState<number>?,
-	LineColor: CanBeState<Enum.StudioStyleGuideColor>?,
-	LineModifier: CanBeState<Enum.StudioStyleGuideColor>?,
+	LineColor: CanBeState<any>?,
+	LineModifier: CanBeState<any>?,
 
 	[any]: any,
 }

@@ -2,9 +2,10 @@
 name = "luarook/gamecomponents"
 description = "A fork of Aloroid's GameComponents made for Game Development"
 license = "MIT"
-version = "0.2.1"
+version = "0.0.1"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 
 [dependencies]
 Fusion = "elttob/fusion@0.2.0"
+EnumList = "sleitnick/enum-list@2.0.1"

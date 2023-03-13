@@ -30,12 +30,12 @@ export type Button = {
 
 	Text: CanBeState<string>?,
 
-	BackgroundColor: CanBeState<Enum.StudioStyleGuideColor>?,
-	BackgroundModifier: CanBeState<Enum.StudioStyleGuideColor>?,
-	BorderColor: CanBeState<Enum.StudioStyleGuideColor>?,
-	BorderModifier: CanBeState<Enum.StudioStyleGuideModifier>?,
-	TextColor: CanBeState<Enum.StudioStyleGuideColor>?,
-	TextModifier: CanBeState<Enum.StudioStyleGuideModifier>?,
+	BackgroundColor: CanBeState<any>?,
+	BackgroundModifier: CanBeState<any>?,
+	BorderColor: CanBeState<any>?,
+	BorderModifier: CanBeState<any>?,
+	TextColor: CanBeState<any>?,
+	TextModifier: CanBeState<any>?,
 
 	Disabled: CanBeState<boolean>?,
 	Selected: CanBeState<boolean>?,

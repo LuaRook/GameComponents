@@ -22,8 +22,8 @@ export type Border = {
 	AnchorPoint: CanBeState<Vector2>?,
 
 	Thickness: CanBeState<number>?,
-	BorderColor: CanBeState<Enum.StudioStyleGuideColor>?,
-	BorderModifier: CanBeState<Enum.StudioStyleGuideModifier>?,
+	BorderColor: CanBeState<any>?,
+	BorderModifier: CanBeState<any>?,
 
 	[any]: any,
 }

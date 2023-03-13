@@ -27,8 +27,8 @@ export type Background = {
 	Size: CanBeState<UDim2>?,
 	AnchorPoint: CanBeState<Vector2>?,
 
-	BackgroundColor: CanBeState<Enum.StudioStyleGuideColor>?,
-	BackgroundModifier: CanBeState<Enum.StudioStyleGuideModifier>?,
+	BackgroundColor: CanBeState<any>?,
+	BackgroundModifier: CanBeState<any>?,
 
 	Padding: CanBeState<number>?,
 	ListPadding: CanBeState<UDim>?,

@@ -20,7 +20,7 @@ local function guideState(
 	disabled: StateObject,
 	pressed: StateObject,
 	hovering: StateObject
-): Computed<Enum.StudioStyleGuideModifier>
+): Computed<any>
 	return Computed(function()
 		local value = if unwrap(disabled)
 			then Enum.StudioStyleGuideModifier.Disabled

@@ -11,32 +11,34 @@ local Util = script.Parent
 
 local Fusion = require(Packages.Fusion)
 local unwrap = require(Util.unwrap)
+local Enums = require(script.Parent.Enums)
 
 local Value = Fusion.Value
 local Computed = Fusion.Computed
 
-local CurrentTheme = Value(Studio.Theme)
+local CurrentTheme = Value("Dark")
 
 type CanBeState<T> = Fusion.CanBeState<T>?
 type Computed<T> = Fusion.Computed<T>
 
-local function Theme(
-	GuideColor: CanBeState<Enum.StudioStyleGuideColor>,
-	GuideModifier: CanBeState<Enum.StudioStyleGuideModifier>
-): Computed<Color3>
+local function themeWith(GuideColor: CanBeState<any>, GuideModifier: CanBeState<any>): Computed<Color3>
 	if GuideColor == nil then
 		return CurrentTheme
 	end
 
 	return Computed(function()
-		local guideColor = unwrap(GuideColor)
-		local guideModifier = unwrap(GuideModifier)
+		local guideColor = unwrap(GuideColor) or Enums.GuideColor.MainBackground
+		local guideModifier = unwrap(GuideModifier) or Enums.GuideModifier.Default
 
-		return unwrap(CurrentTheme):GetColor(
-			guideColor or Enum.StudioStyleGuideColor.MainBackground,
-			guideModifier or Enum.StudioStyleGuideModifier.Default
-		)
+		local currentTheme = unwrap(CurrentTheme)
+		local themeData = unwrap(currentTheme)
+
+		if not themeData[currentTheme][guideModifier] then
+			return themeData[currentTheme][Enums.GuideModifier.Default]
+		end
+
+		return themeData[unwrap(CurrentTheme)][guideColor][guideModifier]
 	end, Fusion.doNothing)
 end
 
-return Theme
+return themeWith
