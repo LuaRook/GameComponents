@@ -35,7 +35,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 
 local function Text(props: Text)
 	local TextColor3 = Spring(Theme(props.TextColor or Enums.GuideColor.MainText, props.TextModifier), 40, 1)
-	
+
 	local Text = New("TextLabel")({
 
 		Name = "Text",

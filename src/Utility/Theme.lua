@@ -36,7 +36,7 @@ local function Theme(GuideColor: CanBeState<any>, GuideModifier: CanBeState<any>
 	return Computed(function()
 		local guideColor = unwrap(GuideColor)
 		local guideModifier = unwrap(GuideModifier)
-		
+
 		return unwrap(CurrentTheme):GetColor(
 			guideColor or Enums.GuideColor.MainBackground,
 			guideModifier or Enums.GuideModifier.Default
