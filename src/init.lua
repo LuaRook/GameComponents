@@ -7,6 +7,7 @@ local GameComponents = {
 	Components = {
 		Background = require(Components.Decoration.Background),
 		Border = require(Components.Decoration.Border),
+		Grid = require(Components.Decoration.Grid),
 		Line = require(Components.Decoration.Line),
 		Padding = require(Components.Decoration.Padding),
 		Pane = require(Components.Decoration.Pane),
