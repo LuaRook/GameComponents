@@ -34,6 +34,8 @@ export type ScrollingFrame = {
 	Padding: CanBeState<number>?,
 	ListPadding: CanBeState<UDim>?,
 
+	SortOrder: CanBeState<Enum.StartOrder>?,
+	
 	HorizontalAlignment: CanBeState<Enum.HorizontalAlignment>?,
 	VerticalAlignment: CanBeState<Enum.VerticalAlignment>?,
 	SortDirection: CanBeState<Enum.SortDirection>?,
@@ -50,6 +52,7 @@ local COMPONENT_ONLY_PROPERTIES = {
 	"BackgroundModifier",
 	"Padding",
 	"ListPadding",
+	"SortOrder",
 	"HorizontalAlignment",
 	"VerticalAlignment",
 	"SortDirection",
@@ -100,7 +103,7 @@ return function(props: ScrollingFrame)
 				end
 
 				return New("UIListLayout")({
-					SortOrder = Enum.SortOrder.LayoutOrder,
+					SortOrder = props.SortOrder or Enum.SortOrder.LayoutOrder,
 					Padding = Computed(function()
 						return UDim.new(0, unwrap(listPadding))
 					end),
