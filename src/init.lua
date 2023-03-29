@@ -27,6 +27,8 @@ local GameComponents = {
 		Tooltip = require(Components.Interactable.Tooltip),
 
 		List = require(Components.Optimization.List),
+
+		Teleporter = require(Components.Utility.Teleporter),
 	},
 
 	Util = require(script.Utility),
